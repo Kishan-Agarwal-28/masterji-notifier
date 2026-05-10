@@ -1,0 +1,21 @@
+name       = "masterji-notifier"
+main       = "worker.js"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding      = "DB"          # env.DB in worker code
+database_name = "masterji-notifier"
+database_id  = "fabbdf25-f703-4123-9a19-9ed925f9aa66"   # replace after: wrangler d1 create masterji-notifier
+
+# Set secrets via CLI — never commit real values here:
+#   wrangler secret put MASTERJI_ACCESS_TOKEN
+#   wrangler secret put MASTERJI_REFRESH_TOKEN
+#   wrangler secret put MASTERJI_BATCH_ID
+#   wrangler secret put MASTERJI_API_BASE
+#   wrangler secret put SUPABASE_ANON_KEY
+#   wrangler secret put NTFY_TOPIC
+#   wrangler secret put MASTERJI_AUTH_BASE   (optional — auto-derived from API_BASE)
+
+# Optional: run /check on a schedule (cron trigger)
+# [triggers]
+# crons = ["*/5 * * * *"]   # every 5 minutes
